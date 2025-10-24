@@ -1,0 +1,15 @@
+services:
+  ros2_container:
+    build:
+      context: .                # root of your project
+      dockerfile: .devcontainer/Dockerfile  # path to your Dockerfile
+    container_name: ros2_container
+    tty: true                   # keeps container running (interactive terminal)
+    stdin_open: true            # allows you to attach to it later
+    volumes:
+      - ./src:/ros2_ws/src           # mount local src folder into ROS 2 workspace
+    working_dir: /ros2_ws
+    environment:
+      - DISPLAY=${DISPLAY}      # (optional, for GUI tools like RViz)
+      - QT_X11_NO_MITSHM=1
+    network_mode: host          # (optional) easier ROS 2 discovery on local system
