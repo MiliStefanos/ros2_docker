@@ -16,3 +16,25 @@ In order to run
 ```bash
 docker compose up -d
 ```
+
+## Build and run linear_algebra_service pkg
+
+Build pkg with colcon
+```bash
+colcon build --packages-select linear_algebra_service
+```
+
+Source workspace
+```bash
+source install/setup.bash
+```
+
+Run server node
+```bash
+ros2 run linear_algebra_service server
+```
+
+Run client node
+```bash
+ros2 run linear_algebra_service client
+```
