@@ -1,31 +1,22 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>linear_algebra_service</name>
+  <name>linear_algebra_msgs</name>
   <version>0.0.1</version>
-  <description>Linear algebra service: Least squares</description>
+  <description>Linear algebra service project messages and services</description>
   <maintainer email="milistefanos@hotmail.com">Stefanos Miliotis</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <buildtool_depend>eigen3_cmake_module</buildtool_depend>
-  <build_depend>eigen</build_depend>
-  <build_depend>yaml-cpp</build_depend>
-
-  <depend>rclcpp</depend>
-  <depend>rosidl_default_generators</depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+ 
   <depend>geometry_msgs</depend>
-  <depend>linear_algebra_msgs</depend>
-
-  <exec_depend>rosidl_default_runtime</exec_depend>
-  <exec_depend>yaml-cpp</exec_depend>
-
-  <build_export_depend>yaml-cpp</build_export_depend>
   
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
   <member_of_group>rosidl_interface_packages</member_of_group>
 
   <export>
     <build_type>ament_cmake</build_type>
   </export>
-
 </package>
