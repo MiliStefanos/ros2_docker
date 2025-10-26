@@ -1,0 +1,7 @@
+float32[] matrix_vectorized
+int32 rows_num
+float32[] vector
+---
+geometry_msgs/Vector3 x_prime_rotated_displaced
+geometry_msgs/Quaternion rotation
+geometry_msgs/Vector3 displacement

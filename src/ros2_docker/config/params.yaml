@@ -1,0 +1,4 @@
+sum_client:
+  ros__parameters:
+    a: 10
+    b: 20
