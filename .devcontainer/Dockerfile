@@ -20,14 +20,25 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
 ENV SHELL=/bin/bash
 
-RUN apt-get update && apt-get install -y \
+# Add ROS 2 sources and key
+RUN apt-get update && apt-get install -y curl gnupg2 lsb-release
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | apt-key add -
+RUN echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list
+RUN apt-get update
+
+# Install ROS 2 desktop and needed tools
+RUN apt-get install -y \
     ros-humble-ros-base \
+    ros-humble-joint-state-publisher-gui \
+    ros-humble-xacro \
+    ros-humble-rviz2 \
+    ros-humble-rviz-visual-tools \
     python3-colcon-common-extensions \
     build-essential \
     cmake \
     libeigen3-dev \
     libyaml-cpp-dev \
-    ros-humble-rviz-visual-tools \
+    liburdfdom-tools \
     && rm -rf /var/lib/apt/lists/*
 
 # Set workspace
