@@ -7,6 +7,11 @@ It includes dependencies such as **Eigen**, **yaml-cpp**, and **rviz_visual_tool
 
 ## Docker Usage
 
+### Download repo
+```bash
+git clone git@github.com:MiliStefanos/ros2_docker.git
+```
+
 ### Build the Docker image
 ```bash
 docker compose build
@@ -110,14 +115,34 @@ ros2 run linear_algebra_service server
 
 ## Optional Tips
 
-- To inspect active topics:
+To inspect active topics:
   ```bash
   ros2 topic list
   ```
 
-- To echo the published solution:
+To echo the published solution:
   ```bash
   ros2 topic echo /least_squares_solution
   ```
 
 ---
+
+## ur20 robot - rviz
+
+Build and run container. (need the following to run rviz from container)
+  ```bash
+  docker compose build && docker compose up -d
+  xhost +local:root
+  docker run -it --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" ros2_docker-ros2_container
+  ```
+
+  Run launch file
+  ```bash
+  sudo chown -R ros:ros /ros2_ws
+  rm -rf install/ log/ build/
+  source /opt/ros/humble/setup.bash
+  colcon build --packages-select ur20_display
+  colcon build --packages-select ur_description
+  source install/setup.bash
+  ros2 launch ur20_display state_publisher.launch.py
+  ```

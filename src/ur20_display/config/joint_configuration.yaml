@@ -1,0 +1,7 @@
+ur20_display:
+  ros__parameters:
+    joint_configuration:
+      name: ["world", "elbow_link", "gripper_link"]
+      position: [0.0, 0.0, 0.0]
+      velocity: []
+      effort: []

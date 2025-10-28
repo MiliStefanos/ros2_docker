@@ -1,0 +1,36 @@
+Visualization Manager:
+  Class: ""
+  Name: root
+  Displays:
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Robot Description: robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1.0
+
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+
+    - Class: rviz_default_plugins/Axes
+      Name: World Axes
+      Enabled: true
+      Length: 0.5
+      Radius: 0.02
+      Reference Frame: world
+
+  Fixed Frame: world
+
+Global Options:
+  Background Color: [0, 0, 0]
+  Fixed Frame: world
+
+Views:
+  Current:
+    Class: rviz_default_plugins/Orbit
+    Distance: 2.0
+    Pitch: 0.4
+    Yaw: 1.0
+    Target Frame: world
